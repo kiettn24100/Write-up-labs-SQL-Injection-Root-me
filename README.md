@@ -1,4 +1,4 @@
-# Challenge 1: SQL injection - Authentification
+# Challenge: SQL injection - Authentification
 
 <img width="1451" height="525" alt="image" src="https://github.com/user-attachments/assets/c05075e1-f254-45a8-81a5-ae703253d4ed" />
 
@@ -40,4 +40,4 @@ password: t0_W34k!$
 ```
 CHúng ta solved được challenge này!!!
 
-# Challenge 2:
+
