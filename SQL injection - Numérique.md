@@ -1,5 +1,8 @@
 # Challenge: SQL injection - Numérique
 
+<img width="1496" height="498" alt="image" src="https://github.com/user-attachments/assets/a5f1776d-a71e-4c06-ade1-f62013d8a1a7" />
+
+
 Vào Challenge thì cho một giao diện như vầy
 
 <img width="1900" height="232" alt="image" src="https://github.com/user-attachments/assets/f6ff0e3d-51be-458d-80d4-28de56315361" />
