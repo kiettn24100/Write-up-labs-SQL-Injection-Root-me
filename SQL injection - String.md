@@ -1,5 +1,7 @@
 # Challenge: SQL Injection - String
 
+<img width="1511" height="508" alt="image" src="https://github.com/user-attachments/assets/8c057093-96e7-4291-8098-9318602951c9" />
+
 
 Vào Challenge thì cho chúng ta một giao diện như thế này
 
