@@ -42,3 +42,13 @@ Kết quả lúc đầu truyền vào `%88'` Bây giờ chúng ta đã có `袈'
 
 Áp dụng , nếu truyền vào ô login là : `%88' or 1=1 -- -` thì chúng ta có :
 
+<img width="1492" height="821" alt="image" src="https://github.com/user-attachments/assets/570eca17-99cc-45b7-8a29-84fa658daf4c" />
+
+Bypass thành công do đã đóng được dấu nháy trước đó và or 1=1 được kích hoạt 
+
+Cuối cùng đi đến `logged.php` và nhận flag thôi 
+
+<img width="1491" height="446" alt="image" src="https://github.com/user-attachments/assets/80b2b70b-4c08-44bf-83f8-4b2d4d14b069" />
+
+`iMDaFlag1337!`
+
